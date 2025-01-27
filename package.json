@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "no test specified"
+    "test": "echo \"No tests available\""
   },
+  "private": true,
   "keywords": [],
   "author": "",
   "license": "ISC",
