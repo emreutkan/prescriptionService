@@ -6,13 +6,13 @@ info:
     API for managing prescription creation and retrieval, protected by bearer JWT tokens from the Doctor Auth Service.
 
 servers:
-  - url: https://prescriptionservice.example.com/api/v1
+  - url: prescriptionservice-bzgca7a4a2feeqge.canadacentral-01.azurewebsites.net/api/v1
     description: Production Server
   - url: http://localhost:8080/api/v1
     description: Staging Server
 
 paths:
-  /doctor/prescriptions:
+  /prescriptions:
     post:
       summary: Create a new prescription
       description: Creates a new prescription for a patient.
@@ -51,7 +51,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Prescription'
 
-  /doctor/prescriptions/tc/{tcId}:
+  /prescriptions/tc/{tcId}:
     get:
       summary: Get prescriptions by TC ID
       description: Retrieves all prescriptions for a specific TC ID.
@@ -76,7 +76,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Prescription'
 
-  /doctor/prescriptions/{prescriptionId}:
+  /prescriptions/{prescriptionId}:
     get:
       summary: Get prescription by ID
       description: Retrieves a specific prescription by its ID.
@@ -129,7 +129,7 @@ paths:
         '404':
           description: Prescription not found
 
-  /doctor/prescriptions/{prescriptionId}/medicines/{medicineId}:
+  /prescriptions/{prescriptionId}/medicines/{medicineId}:
     patch:
       summary: Update medicine in prescription
       description: Updates a specific medicine within a prescription.
@@ -196,7 +196,7 @@ paths:
         '404':
           description: Prescription or medicine not found
 
-  /pharmacy/prescriptions/pending:
+  /prescriptions/pending:
     get:
       summary: Get all pending prescriptions
       tags:
@@ -215,7 +215,7 @@ paths:
         '500':
           description: Error fetching prescriptions
 
-  /pharmacy/prescriptions/{prescriptionId}:
+  /prescriptions/{prescriptionId}:
     patch:
       summary: Submit a prescription with partial completion
       tags:
@@ -267,7 +267,7 @@ paths:
         '500':
           description: Error submitting prescription
 
-  /pharmacy/prescriptions/incomplete:
+  /prescriptions/incomplete:
     get:
       summary: Get all incomplete prescriptions for the logged-in pharmacy
       tags:
@@ -286,7 +286,7 @@ paths:
         '500':
           description: Error fetching incomplete prescriptions
 
-  /pharmacy/prescriptions/{prescriptionId}/complete:
+  /prescriptions/{prescriptionId}/complete:
     patch:
       summary: Mark a prescription as complete
       tags:
@@ -312,7 +312,7 @@ paths:
         '500':
           description: Error completing the prescription
 
-  /pharmacy/prescriptions/search/{tcId}:
+  /prescriptions/search/{tcId}:
     get:
       summary: Search prescriptions by TC ID
       tags:
