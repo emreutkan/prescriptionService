@@ -4,7 +4,7 @@ const {
     submitPrescription,
     getIncompletePrescriptions, completePrescriptionHandler, searchPrescriptionByTcId,
 } = require('../../controllers/pharmacyController');
-const authMiddleware = require('../../../pharmacyService/middlewares/authMiddleware');
+const authMiddleware = require('../../middlewares/authMiddleware');
 
 const router = express.Router();
 
