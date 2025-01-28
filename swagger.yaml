@@ -12,7 +12,7 @@ servers:
     description: Staging Server
 
 paths:
-  /prescriptions:
+  /doctor/prescriptions:
     post:
       summary: Create a new prescription
       description: Creates a new prescription for a patient.
@@ -51,7 +51,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Prescription'
 
-  /prescriptions/tc/{tcId}:
+  /doctor/prescriptions/tc/{tcId}:
     get:
       summary: Get prescriptions by TC ID
       description: Retrieves all prescriptions for a specific TC ID.
@@ -76,7 +76,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Prescription'
 
-  /prescriptions/{prescriptionId}:
+  /doctor/prescriptions/{prescriptionId}:
     get:
       summary: Get prescription by ID
       description: Retrieves a specific prescription by its ID.
@@ -129,7 +129,7 @@ paths:
         '404':
           description: Prescription not found
 
-  /prescriptions/{prescriptionId}/medicines/{medicineId}:
+  /doctor/prescriptions/{prescriptionId}/medicines/{medicineId}:
     patch:
       summary: Update medicine in prescription
       description: Updates a specific medicine within a prescription.
@@ -196,7 +196,7 @@ paths:
         '404':
           description: Prescription or medicine not found
 
-  /prescriptions/pending:
+  /pharmacy/prescriptions/pending:
     get:
       summary: Get all pending prescriptions
       tags:
@@ -215,7 +215,7 @@ paths:
         '500':
           description: Error fetching prescriptions
 
-  /prescriptions/{prescriptionId}:
+  /pharmacy/prescriptions/{prescriptionId}:
     patch:
       summary: Submit a prescription with partial completion
       tags:
@@ -267,7 +267,7 @@ paths:
         '500':
           description: Error submitting prescription
 
-  /prescriptions/incomplete:
+  /pharmacy/prescriptions/incomplete:
     get:
       summary: Get all incomplete prescriptions for the logged-in pharmacy
       tags:
@@ -286,7 +286,7 @@ paths:
         '500':
           description: Error fetching incomplete prescriptions
 
-  /prescriptions/{prescriptionId}/complete:
+  /pharmacy/prescriptions/{prescriptionId}/complete:
     patch:
       summary: Mark a prescription as complete
       tags:
@@ -312,7 +312,7 @@ paths:
         '500':
           description: Error completing the prescription
 
-  /prescriptions/search/{tcId}:
+  /pharmacy/prescriptions/search/{tcId}:
     get:
       summary: Search prescriptions by TC ID
       tags:

@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
     res.redirect('/swagger');
 });
 
-app.use('/api/v1', doctorRoutes);
-app.use('/api/v1', pharmacyRoutes);
+app.use('/api/v1/doctor', doctorRoutes);
+app.use('/api/v1/pharmacy', pharmacyRoutes);
 
 mongoose.connect(MONGO_URI)
     .then(() => console.log('Connected to MongoDB'))
