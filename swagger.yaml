@@ -404,6 +404,9 @@ components:
         pharmacyId:
           type: string
           example: "64a7f2e50935712345678pharm"
+        IssuerPharmacyEmail:
+          type: string
+          example: "pharmacy@example.com"
         medicines:
           type: array
           items:

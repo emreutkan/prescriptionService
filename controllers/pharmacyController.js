@@ -59,7 +59,7 @@ const completePrescriptionHandler = async (req, res) => {
 
         prescription.missingMedicines = [];
         prescription.status = 'Completed';
-        prescription.IssuerPharmacyEmail = req.user.email; // Automatically set IssuerPharmacyEmail
+        prescription.IssuerPharmacyEmail = req.user.email;
         prescription.updatedAt = new Date();
 
         const updatedPrescription = await prescription.save();
