@@ -38,15 +38,24 @@ const submitPrescription = async (req, res) => {
 
 const getIncompletePrescriptions = async (req, res) => {
     try {
-        const prescriptions = await Prescription.find({
-            status: 'Incomplete',
-            pharmacyId: req.user.pharmacyId,
-        });
+        // Build the query filter
+        // If the user is admin, we do NOT restrict by pharmacyId
+        // Otherwise, only retrieve prescriptions for the user’s pharmacy
+        let filter = { status: 'Incomplete' };
+
+        if (req.user.email !== 'admin@admin.com') {
+            // For non-admin users, add the pharmacyId condition
+            filter.pharmacyId = req.user.pharmacyId;
+        }
+
+        // Fetch prescriptions based on the constructed filter
+        const prescriptions = await Prescription.find(filter);
         res.status(200).json(prescriptions);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching incomplete prescriptions', error });
     }
 };
+
 
 const completePrescriptionHandler = async (req, res) => {
     try {
