@@ -6,7 +6,7 @@ info:
     API for managing prescription creation and retrieval, protected by bearer JWT tokens from the Doctor Auth Service.
 
 servers:
-  - url: prescriptionservice-bzgca7a4a2feeqge.canadacentral-01.azurewebsites.net/api/v1
+  - url: https://prescriptionservice-bzgca7a4a2feeqge.canadacentral-01.azurewebsites.net/api/v1
     description: Production Server
   - url: http://localhost:8080/api/v1
     description: Staging Server
