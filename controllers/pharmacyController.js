@@ -42,7 +42,7 @@ const getIncompletePrescriptions = async (req, res) => {
         // If the user is admin, we do NOT restrict by pharmacyId
         // Otherwise, only retrieve prescriptions for the user’s pharmacy
         let filter = { status: 'Incomplete' };
-
+        console.log('User email:', req.user.email);
         if (req.user.email !== 'admin@admin.com') {
             // For non-admin users, add the pharmacyId condition
             filter.pharmacyId = req.user.pharmacyId;
