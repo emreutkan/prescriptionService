@@ -22,6 +22,13 @@ const createPrescriptionHandler = async (req, res) => {
     }
 };
 
+
+
+
+
+
+
+
 // Get prescriptions created by the logged-in doctor
 const getDoctorPrescriptionsHandler = async (req, res) => {
     try {

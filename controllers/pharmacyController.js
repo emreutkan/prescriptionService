@@ -8,7 +8,6 @@ const getPendingPrescriptions = async (req, res) => {
         res.status(500).json({ message: 'Error fetching prescriptions', error });
     }
 };
-
 const submitPrescription = async (req, res) => {
     try {
         const { prescriptionId } = req.params;
@@ -22,8 +21,8 @@ const submitPrescription = async (req, res) => {
         prescription.medicines = medicines || prescription.medicines;
         prescription.missingMedicines = missingMedicines || [];
         prescription.pharmacyId = req.user.pharmacyId;
+        prescription.IssuerPharmacyEmail = req.user.email; // Automatically set IssuerPharmacyEmail
 
-        // Update status based on the presence of missing medicines
         prescription.status =
             missingMedicines && missingMedicines.length > 0 ? 'Incomplete' : 'Completed';
 
@@ -35,6 +34,7 @@ const submitPrescription = async (req, res) => {
         res.status(500).json({ message: 'Error submitting prescription', error });
     }
 };
+
 
 const getIncompletePrescriptions = async (req, res) => {
     try {
@@ -48,7 +48,6 @@ const getIncompletePrescriptions = async (req, res) => {
     }
 };
 
-
 const completePrescriptionHandler = async (req, res) => {
     try {
         const { prescriptionId } = req.params;
@@ -60,6 +59,7 @@ const completePrescriptionHandler = async (req, res) => {
 
         prescription.missingMedicines = [];
         prescription.status = 'Completed';
+        prescription.IssuerPharmacyEmail = req.user.email; // Automatically set IssuerPharmacyEmail
         prescription.updatedAt = new Date();
 
         const updatedPrescription = await prescription.save();

@@ -4,6 +4,7 @@ const prescriptionSchema = new mongoose.Schema({
     tcId: { type: String, required: true },
     doctorId: { type: String, required: true },
     pharmacyId: { type: String },
+    IssuerPharmacyEmail: { type: String },
     medicines: [
         {
             name: { type: String, required: true }, // Name of the medicine
