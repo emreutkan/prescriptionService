@@ -3,7 +3,7 @@
 
 # Prescription Service API
 
-URL: https://prescriptionservice-bzgca7a4a2feeqge.canadacentral-01.azurewebsites.net/api/v1
+URL: https://prescriptionservice-bzgca7a4a2feeqge.canadacentral-01.azurewebsites.net
 
 ---
 
